@@ -1,4 +1,4 @@
-name: "Update YugabyteDB version"
+name: "Update YugabyteDB version test"
 on:
   repository_dispatch:
     types:
