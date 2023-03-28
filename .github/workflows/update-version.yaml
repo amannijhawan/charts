@@ -61,6 +61,7 @@ jobs:
         .ci/update_version.sh '${{steps.extract-version.outputs.yb_version}}'
     - name: "Push the changes"
       if: steps.update-version.outcome == 'success'
+      continue-on-error: true
       run: |
         git status
         git diff
@@ -70,6 +71,7 @@ jobs:
         git push origin ${{steps.switch-branch.outputs.yb_branch}}
     - name: "Show git status in case of failure"
       if: steps.update-version.outcome == 'failure'
+      continue-on-error: true
       run: |
         git status
         git diff
