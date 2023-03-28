@@ -1,8 +1,6 @@
 name: "Update YugabyteDB version test"
-on:
-  repository_dispatch:
-    types:
-    - push
+on: push
+
 jobs:
   update-version:
     if: github.event.client_payload.prerelease == 'false'
